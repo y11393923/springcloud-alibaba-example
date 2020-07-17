@@ -1,0 +1,24 @@
+server:
+  port: 8850
+  servlet:
+    context-path: /fegin
+spring:
+  application:
+    name: fegin-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8720
+management:
+  endpoints:
+    web:
+      cors:
+        allowed-methods: '*'
+feign:
+  sentinel:
+    #开启Sentinel对Feign的支持
+    enabled: true

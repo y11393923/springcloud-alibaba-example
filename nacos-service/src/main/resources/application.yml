@@ -1,0 +1,19 @@
+server:
+  port: 8849
+spring:
+  application:
+    name: nacos-service
+  cloud:
+    nacos:
+      discovery:
+        #配置nacos地址
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8721
+management:
+  endpoints:
+    web:
+      cors:
+        allowed-methods: '*'

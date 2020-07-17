@@ -1,0 +1,17 @@
+server:
+  port: 8851
+spring:
+  application:
+    name: nacos-config
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        #指定nacos配置中心地址
+        server-addr: 127.0.0.1:8848
+        #指定配置中心中配置文件的格式
+        file-extension: yml
+        prefix: ${spring.application.name}
+  profiles:
+    active: dev

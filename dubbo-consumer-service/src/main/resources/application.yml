@@ -1,0 +1,20 @@
+server:
+  port: 8853
+spring:
+  application:
+    name: dubbo-consumer-service
+  cloud:
+    #Nacos 服务发现与注册配置，其中子属性 server-addr 指定 Nacos 服务器主机和端口。
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  main:
+    #在 Spring Boot 2.1 以及更高的版本增加该设定，因为 Spring Boot 默认调整了 Bean 定义覆盖行为。
+    allow-bean-definition-overriding: true
+dubbo:
+  registry:
+    #Dubbo 服务注册中心配置，其中子属性address 的值 "spring-cloud://localhost"，说明挂载到 Spring Cloud 注册中心
+    address: spring-cloud://localhost
+  cloud:
+    #表示要订阅服务的服务名，可以配置'*'，代表订阅所有服务，不推荐使用。若需订阅多应用，使用 "," 分割。
+    subscribed-services: dubbo-provider-service
